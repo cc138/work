@@ -1,0 +1,123 @@
+.contain{
+    /*background-color: red;*/
+}
+.contain .main{
+    width: 100%;
+    height: 85%;
+    background-color: black;
+    color: #333;
+    font-size: 18px;
+    overflow: auto;
+}
+
+.contain .main .floor{
+    color: #ccc;
+    font-size: 40px;
+}
+.contain .main ul{
+    width: 100%;
+    height: 100%;
+}
+.contain .main li{
+    overflow: auto;
+    padding: 4px 14px 20px;
+    background-color: #F6F6F6;
+    float: left;
+    width: 50%;
+    height: 40%;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+}
+.main div.text{
+    font-family: font-Giorgio,PingFangSCS,Arial,sans-serif;
+}
+.main .mine{
+    margin-top: 10px;
+}
+.message_board{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15% ;
+    background-color: #fff;
+}
+.message_board .row{
+    height: 50%;
+    width: 100%;
+}
+.message_board .name{
+    float: left;
+    width: 30%;
+    height: 100%;
+    /*border: 1px solid #ccc;*/
+    /*margin-right: -1px;*/
+}
+.message_board .email{
+    float: left;
+    width: 70%;
+    height: 100%;
+    /*border: 1px solid #ccc;*/
+}
+.message_board .mes{
+    float: left;
+    width: 80%;
+    height: 100%;
+    /*border: 1px solid #ccc;*/
+    /*margin-top: -1px;*/
+}
+.message_board .send{
+    float: left;
+    width: 20%;
+    height: 100%;
+    /*margin-top: -1px;*/
+}
+.message_board input{
+    border: 1px solid #ccc;
+    /*position: relative;*/
+    width: 100%;
+    height: 100%;
+    /*border: none;*/
+    outline: none;
+    background: none;
+    padding-left: 20px;
+    font-size: 16px;
+    /*margin: -1px 0 0 -1px;*/
+}
+.message_board button{
+    /*border: 1px solid #ccc;*/
+    display: inline-block;
+    border: none;
+    outline: none;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 30px;
+    font-family: 'font';
+    font-weight: bold;
+}
+
+/*:placeholder-shown实现占位符过渡效果实例页面*/
+/*来源：张鑫旭博客*/
+input:placeholder-shown::placeholder{
+    color: transparent;
+}
+.name,.email,.mes{
+    position: relative;
+}
+.label{
+    position: absolute;
+    left: 15px;
+    font-size: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+input:focus{
+    border-color: #2486ff;
+}
+input:not(:placeholder-shown) ~ .label,
+input:focus ~ .label {
+    color: #2486ff;
+    transform: scale(0.75) translate(-3px, -35px);
+}
+

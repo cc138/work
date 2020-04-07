@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 20px;
+            height: 20px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            padding: 10px;
+            text-align: center;
+            background: url("../imgs/face.png") no-repeat;
+            background-position: -6px -6px;
+        }
+    </style>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div class="box btn"></div>
+<script>
+    var div=document.querySelector(".box");
+    var face=window.getComputedStyle(div,"::after");
+    // alert(face.backgroundPosition)
+</script>
+<script src="tool.js"></script>
+<script>
+    var text="abc[123]abc[12]";
+    var reg=/\[([\u4e00-\u9fa5\w]+)\]/g
+    $(".box").click(function () {
+       console.log($(this).attr("class"))
+    })
+    // var str= text.replaceAll("[",",").replaceAll("]",",");
+    // console.log(str);
+    // var arr=str.split(",").join("")
+    // console.log(arr)
+
+
+
+</script>
+</body>
+</html>

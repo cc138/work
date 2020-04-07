@@ -1,0 +1,475 @@
+.mask{
+    position: absolute;
+    width: 100%;
+    /*height: 100%;*/
+    z-index: 2;
+    display: none;
+    background-color: rgba(66,66,66,.6);
+}
+/*头部*/
+.header {
+    height: 100px;
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #FF6700;
+}
+
+/*logo样式*/
+.header .logo_wrap {
+    width: 95px;
+    position: relative;
+    top: 25px;
+}
+
+.header .logo {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    background-color: #FF6700;
+}
+
+.logo_wrap h1 {
+    position: relative;
+    width: 0;
+    height: 0;
+    font-size: 0;
+}
+.logo_wrap h1:before{
+    content: ".";
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: url(../imgs/mi-logo.png) no-repeat;
+    transition: all .2s;
+    left: 1px;
+}
+.logo_wrap h1:after{
+    content: ".";
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: url("../imgs/mi-home.png") no-repeat;
+    left: -50px;
+    top: -1px;
+    transition: all .2s;
+}
+/*logo移动坐标*/
+.logo:hover h1:before{
+    left: 55px;
+}
+.logo:hover h1:after{
+    left: -1px;
+    top: -1px;
+}
+
+.header img {
+    vertical-align: middle;
+}
+
+/*购物车*/
+
+.header .myCarts {
+    line-height: 100px;
+}
+
+.header .myCarts h1 {
+    padding-right: 16px;
+}
+
+.header .myCarts p {
+    font-size: 12px;
+    color: #757575;
+    line-height: 110px;
+}
+
+/*登录注册*/
+.login li {
+    float: left;
+    line-height: 100px;
+    font-size: 12px;
+}
+
+.login li a {
+    color: #757575;
+}
+
+.login .first::after {
+    content: "|";
+    padding: 0 5px;
+}
+
+/*主体*/
+.main {
+    background-color: #F5F5F5;
+    /*background-color: #449fdb;*/
+    padding-top: 40px;
+}
+
+/*选购的商品列表*/
+
+.main .shop li {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.main .shop li:last-of-type {
+    border-bottom: none;
+}
+
+.main .first .title_box {
+    height: 70px;
+    /* padding: 0 0 0 0; */
+    line-height: 70px;
+    padding-left: 20px;
+}
+
+/*选项间距*/
+.first .s1 {
+    padding-left: 10px;
+}
+
+.first .s2 {
+    padding-left: 145px;
+}
+
+.first .s3 {
+    padding-left: 380px;
+}
+
+.first .s4 {
+    padding-left: 135px;
+}
+
+.first .s5 {
+    padding-left: 153px;
+}
+
+.first .s6 {
+    padding-left: 107px;
+}
+
+/*商品内容样式*/
+.second .box {
+    height: 116px;
+    line-height: 116px;
+    padding-left: 20px;
+}
+
+/*商品图片*/
+.second img {
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+    margin: 0 45px 0 60px;
+}
+
+
+.second .box .shangPing:hover {
+    color: #3c3c3c !important;
+}
+
+/*商品数量*/
+.second .box .number {
+    margin-left: 28px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+/*加减号*/
+.second .box .number i {
+    display: inline-block;
+    width: 40px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.second .box .number i:hover {
+    background-color: #E0E0E0;
+}
+
+.second .box .number input {
+    width: 70px;
+    height: 38px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+.second .box .orange {
+    color: #FF6700;
+    /*padding: 0 118px 0 78px;*/
+}
+
+.second .box .checkedList {
+    /*width: 110px;*/
+    display: inline-block;
+}
+
+.second .box .shangPing {
+    width: 580px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.second .box .price {
+    width: 120px;
+    text-align: center;
+    display: inline-block;
+}
+
+.second .box .subtotal {
+    width: 205px;
+    text-align: center;
+    display: inline-block;
+}
+
+.second .box .del {
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+}
+
+/*结算*/
+.main .jieSuan {
+    position: relative;
+    margin-top: 25px;
+    background-color: #fff;
+}
+
+.main .jieSuan p {
+    height: 50px;
+    line-height: 50px;
+    color: #757575;
+}
+
+/*结算左边*/
+.main .jieSuan p.fl {
+    padding-left: 30px;
+}
+
+.main .jieSuan p.fr {
+    color: #FF6700;
+}
+
+.main .jieSuan .line::after {
+    content: "|";
+    padding: 0 10px;
+    color: #ccc;
+}
+
+.main .jieSuan .orange {
+    color: #FF6700;
+    padding: 0 5px 0 0;
+}
+
+/*结算右边*/
+.jieSuan p.fr input {
+    width: 203px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 55px;
+    border: none;
+    outline: #C2C2C2;
+    color: #B0B0B0;
+    font-size: 20px;
+}
+
+.jieSuan p.fr .orange {
+    font-size: 30px;
+}
+
+/*小提示*/
+.jieSuan .tip {
+    position: absolute;
+    width: 203px;
+    height: 52px;
+    right: 0;
+    top: -60px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: #FF6700;
+    border: 1px solid #FF6700;
+}
+
+.jieSuan .tip .content {
+    position: relative;
+    background-color: #fff;
+}
+
+/*小三角*/
+.jieSuan .tip .content .triangle {
+    position: absolute;
+    left: 50%;
+    bottom: -11px;
+    transform: rotate(45deg) translateX(-50%);
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #FF6700;
+    border-right: 1px solid #FF6700;
+    border-left: 1px solid transparent;
+}
+
+/*二次确认框*/
+.del_confirm{
+    display: none;
+    position: fixed;
+    width: 500px;
+    height: 270px;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    color: #757575;
+    text-align: center;
+    z-index: 99;
+    transition: all .7s;
+}
+.del_confirm a{
+    font-size: 32px;
+    float: right;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    color: #757575;
+}
+.del_confirm h1{
+    padding-top: 90px;
+    /*font-size: 35px;*/
+    color: #000;
+    padding-bottom: 60px;
+}
+
+.confirm_sel .btn{
+    display: inline-block;
+    background: none;
+    outline: none;
+    border: none;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.confirm_sel .cancel{
+    background-color: #AEAEAE;
+}
+.confirm_sel .cancel:hover{
+    background-color: #757575;
+}
+.confirm_sel .determine{
+    background-color: #FF6700;
+}
+.confirm_sel .determine:hover{
+    background-color: #F25807;
+}
+
+
+/*推荐部分*/
+.main .tuiJian {
+    position: relative;
+    height: 110px;
+    padding-top: 55px;
+}
+
+.main .tuiJian p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    padding: 0 50px;
+    background-color: #f5f5f5;
+    color: #757575;
+}
+
+/*推荐列表*/
+.main .tuijian_list {
+    margin-bottom: 50px;
+}
+
+.main .tuijian_list li {
+    position: relative;
+    width: 233px;
+    /*height: 300px;*/
+    float: left;
+    text-align: center;
+    background-color: #fff;
+    padding: 40px 5px 25px;
+    margin: 0 15px 15px 0;
+}
+
+.main .tuijian_list li.last {
+    margin-right: 0;
+}
+
+.main .tuijian_list li:hover a {
+    color: #3c3c3c !important;
+}
+
+.main .tuijian_list li a .p1 {
+    padding: 20px 0;
+}
+
+.main .tuijian_list li a .orange {
+    color: #FF6700;
+    padding-bottom: 20px;
+}
+.tuijian_list .jiaG{
+    outline: none;
+    display: none;
+    position: absolute;
+    left: 50%;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+    bottom: 10px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #FF6700;
+    border: 1px solid #FF6700;
+}
+.main .tuijian_list .jiaG:hover{
+    transition: all .4s;
+    color: #fff!important;
+    background-color: #F25807;
+}
+
+/*空购物车*/
+.spaceCats{
+    display: none;
+    height: 272px;
+    padding-left: 558px;
+    margin: 65px 0 130px;
+    background: url(../imgs/cart-empty.png) no-repeat 124px 0;
+    color: #b0b0b0;
+    overflow: hidden;
+}
+.spaceCats h1{
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-size: 40px;
+}
+.spaceCats a{
+    display: block;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    background-color: #FF6700;
+    /*margin-top: 25px;*/
+}
+.spaceCats a:hover{
+    background-color: #F25807;
+    color: #fff!important;
+}
+

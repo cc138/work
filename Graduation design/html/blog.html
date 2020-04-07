@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+<div class="head">
+    <div class="menu">
+        menu
+        <a href="javaScript:;" id="icon_menu">
+            <i class="icon icon_menu"></i>
+            <i class="icon icon_out" style="display: none"></i>
+        </a>
+    </div>
+    <div class="menu_list">
+        <ul>
+            <li><a href="../index.html">首页&nbsp;/&nbsp;index</a></li>
+            <li><a href="./work.html">作品&nbsp;/&nbsp;work</a></li>
+            <li class="current"><a href="./blog.html">博客&nbsp;/&nbsp;blog</a></li>
+            <li><a href="./Photos.html">相册&nbsp;/&nbsp;photo</a></li>
+            <li><a href="./login.html">聊天&nbsp;/&nbsp;chat</a></li>
+            <li><a href="./contact.html">联系&nbsp;/&nbsp;contact</a></li>
+            <li><a href="./collection.html">收藏&nbsp;/&nbsp;collection</a></li>
+        </ul>
+    </div>
+</div>
+<div class="contain">
+    <div class="main">
+        <div id="doorBox" class="door-box">
+            <div class="wall">
+                <div class="door-border">
+                    <div class="door-frame">
+                        <!-- 左门 -->
+                        <div class="door door-left">
+                            <!-- 门后 -->
+                            <div class="door-face-0"></div>
+                            <!-- 三个面 -->
+                            <div class="door-face-2"></div>
+                            <div class="door-face-1"></div>
+                            <div class="door-face-3"></div>
+                        </div>
+                        <!-- 右门 -->
+                        <div class="door door-right">
+                            <!-- 门后 -->
+                            <div class="door-face-0"></div>
+                            <!-- 三个面 -->
+                            <div class="door-face-2"></div>
+                            <div class="door-face-1"></div>
+                            <div class="door-face-3"></div>
+                        </div>
+                        <!-- 进入按钮 -->
+                        <div class="door-btn">
+                            <a id="doorBtnIn" class="door-in" >开门</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div hidden><audio id="audioOpen" src="../audio/open.mp3" preload="auto"></audio></div>
+
+    </div>
+</div>
+<script>
+    var eleDoorBox = document.getElementById('doorBox');
+    // 开门音效mp3
+    var eleAudioOpen = document.getElementById('audioOpen');
+    // 点击按钮
+    document.querySelector('#doorBtnIn').addEventListener('click', function () {
+        this.style.display = 'none';
+        eleAudioOpen.play();
+        eleDoorBox.classList.add('open');
+       setTimeout(function () {
+           window.location.href="http://blog.nowcoder.net/c9527"
+       },200)
+    });
+</script>
+<script src="../js/common.js"></script>
+<script src="../js/duangduangduang.js"></script>
+</body>
+</html>

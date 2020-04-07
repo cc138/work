@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.min.js"></script>
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /*box-sizing: border-box;*/
+        }
+        .box{
+            position: absolute;
+            max-width: 80%;
+            max-height: 80%;
+            min-width: 250px;
+            min-height: 500px;
+            left: 50%;
+            top: 45%;
+            transform: translate(-50%,-50%);
+            background: url("bg.png");
+            background-size: 100% 100%;
+            border-right: 1px solid #A2A1A1;
+            border-left: 1px solid #A2A1A1;
+            overflow: hidden;
+        }
+        .wz{
+            position: absolute;
+            width: 25%;
+            height: 16.66667%;
+            left: 0;
+            /*top: 0;*/
+            background: url("hk.png");
+            /*控制速度*/
+            /*transition: all 200ms;*/
+        }
+        .score{
+            position: absolute;
+            left: 49.5%;
+            top: 10%;
+            transform: translate(-50%,-50%);
+        }
+        .btn{
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+        }
+        p{
+            position: absolute;
+            width: 25%;
+            height: 16.66667%;
+        }
+        button{
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="score">当前得分为：<span>0</span></div>
+<div class="box">
+<!--    P的目的是获取黑块的宽高-->
+    <p></p>
+</div>
+<div class="btn">
+    <button onclick="modelOne()">街机模式</button>
+    <button onclick="modelTwo()">经典模式</button>
+</div>
+
+
+
+
+
+<script>
+
+    //创建div
+    function creatDiv() {
+        $("<div class='hk'></div>").css({
+            left:Random()+"px",
+            top:-$("p")[0].offsetHeight,
+            // transition: "all "+10000-parseInt(score/100)+"ms"
+        }).addClass("wz").appendTo($(".box"));
+
+    }
+
+
+
+
+    //黑块水平方向位置随机
+    function Random() {
+        return (parseInt(Math.random()*4)*($("p")[0].offsetWidth))-0.75;
+    }
+
+
+    //点击黑块以外部分，游戏结束
+    $(".box").click(function(e){
+        if (e.target == e.currentTarget) {
+            alert("游戏结束,您的分数为："+score);
+            start(cover());
+        }
+    });
+
+    //初始化,清空box里的黑块
+    function start(callback) {
+        $(".box").children(".wz").remove();
+        $("span").text(0);
+        score=0;
+        speedLevel=0;
+        // clearInterval(timer);
+        //清除页面所有定时器
+        for (i=0;i<10;i++){
+            clearInterval(i);
+        }
+        callback();
+    }
+    //计算分数
+    function sumScore() {
+        return  score=$("span").text();
+    }
+    //回调函数，让按钮恢复点击功能
+    function cover() {
+       var btn= document.querySelectorAll("button");
+       for (let i=0;i<btn.length;i++){
+           btn[i].disabled=false;
+       }
+    }
+    //加速
+    function speedAdd() {
+        if (speedLevel<=5){
+            if (score%100==0){
+                timer2=setInterval(move,30-speedLevel*5);
+                timer2;
+                speedLevel++;
+            }
+        }else {
+            return;
+        }
+    }
+    var flag;
+
+
+</script>
+<script src="mode_one.js"></script>
+<script src="mode_two.js"></script>
+<script src="click.js"></script>
+</body>
+</html>

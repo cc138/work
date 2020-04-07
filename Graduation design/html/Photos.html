@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/Photos.css" />
+  </head>
+  <body>
+    <div class="head">
+      <div class="menu">
+        menu
+        <a href="javaScript:;" id="icon_menu">
+          <i class="icon icon_menu"></i>
+          <i class="icon icon_out" style="display: none"></i>
+        </a>
+      </div>
+      <div class="menu_list">
+        <ul>
+          <li><a href="../index.html">首页&nbsp;/&nbsp;index</a></li>
+          <li><a href="./work.html">作品&nbsp;/&nbsp;work</a></li>
+          <li><a href="./blog.html">博客&nbsp;/&nbsp;blog</a></li>
+          <li class="current">
+            <a href="./Photos.html">相册&nbsp;/&nbsp;photo</a>
+          </li>
+          <li><a href="./login.html">聊天&nbsp;/&nbsp;chat</a></li>
+          <li><a href="./contact.html">联系&nbsp;/&nbsp;contact</a></li>
+          <li><a href="./collection.html">收藏&nbsp;/&nbsp;collection</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <div class="contain">
+      <div class="main">
+        <ul>
+          <li>
+            <div class="cover">
+              <img src="../imgs/1-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：dnf</p>
+                <p>描述：游戏美图</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/2-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：南京夫子庙</p>
+                <p>描述：2019年dnf嘉年华之阿拉德市集活动</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/3-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：淮北师范大学</p>
+                <p>描述：学校风光</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/4-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：美图</p>
+                <p>描述：美图</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/5-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：风景</p>
+                <p>描述：优美风景</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/6-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：One Piece</p>
+                <p>描述：オレは海賊王になる男だ</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/7-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：中山陵、博物馆</p>
+                <p>描述：2019年南京中山陵，博物馆之旅</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="cover">
+              <img src="../imgs/8-1.jpg" alt="" />
+              <div class="des">
+                <p>名字：游乐园</p>
+                <p>描述：2019年暑期游乐园之旅</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="detail">
+        <div class="focus">
+          <button class="del"></button>
+          <img src="../imgs/{{}}" alt="" />
+          <button class="btn btn_l"></button>
+          <button class="btn btn_r"></button>
+        </div>
+      </div>
+    </div>
+    <script src="../dist/template-web.js" charset="utf-8"></script>
+    <script src="../dist/tool.js" charset="utf-8"></script>
+    <!-- <script>
+    $$.ajax({
+        url:"http://localhost:8080/Design/PhotoController.html",
+        dataType:"jsonp",
+        success:function (data) {
+            var html=template("imgTemplate",{photoes:data});
+            $(".main ul").html(html);
+        }
+    });
+</script> -->
+    <script>
+      var count = 0
+      window.onload = function() {
+        $(function() {
+          $('.main li')
+            .hover(function() {
+              $(this)
+                .toggleClass('fil')
+                .find('.des')
+                .toggleClass('opa')
+                .siblings('img')
+                .toggleClass('amplification')
+            })
+            .click(function() {
+              var src = $(this).find('img')[0].src
+              $('.detail')
+                .css('display', 'block')
+                .find('img')
+                .attr('src', src)
+            })
+          $('.del').click(function() {
+            $(this)
+              .parents('.detail')
+              .css('display', 'none')
+			  count=0
+          })
+          //右边按钮
+          $('.btn_r').click(function() {
+            var reg = /[\-][0-9]/g
+			 count++
+            var src = $(this)
+              .siblings('img')[0]
+              .src.replace(reg, '-' + ((count % 8) + 1))
+            $(this)
+              .siblings('img')
+              .attr('src', src)
+			 
+          })
+          //左边按钮
+          $('.btn_l').click(function() {
+            // count=7;
+            if (count <= 0) {
+              count = 7
+            }
+            var reg = /[\-][0-9]/g
+            count--
+            var src = $(this)
+              .siblings('img')[0]
+              .src.replace(reg, '-' + ((count % 8) + 1))
+            $(this)
+              .siblings('img')
+              .attr('src', src)
+          })
+        })
+      }
+    </script>
+  </body>
+</html>

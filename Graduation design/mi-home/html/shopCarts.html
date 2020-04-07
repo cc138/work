@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/shopCarts.css">
+
+</head>
+<body>
+<div class="mask"></div>
+<!--头部-->
+<div class="header clear">
+    <div class="w clear">
+        <!--LOGO区-->
+        <div class="logo_wrap fl">
+            <div class="logo">
+                <a href="index.html" title="小米官网">
+                    <h1>小米商城</h1>
+                    <!--                        <img src="../imgs/mi-home.png" alt="" title="小米官网">-->
+                    <!--                        <img src="../imgs/mi-logo.png" alt="" title="小米官网">-->
+                </a>
+            </div>
+        </div>
+        <div class="myCarts fl">
+            <h1 class="fl">我的购物车</h1>
+            <p class="fl">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
+        </div>
+        <!--登录注册-->
+        <div class="login fr">
+            <ul>
+                <li class="first"><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--主体-->
+<div class="main clear">
+    <div class="w clear">
+        <!--选购的商品-->
+        <div class="shop">
+            <!--商品列表-->
+            <ul>
+                <!--选项-->
+                <li class="first">
+                    <div class="title_box">
+                        <!--<i class="icon"></i>-->
+                        <input type="checkbox" class="checkedAll">
+                        <span class="s1">全选</span>
+                        <span class="s2">商品名称</span>
+                        <span class="s3">单价</span>
+                        <span class="s4">数量</span>
+                        <span class="s5">小计</span>
+                        <span class="s6">操作</span>
+                    </div>
+                </li>
+                <!--商品列表-->
+                <script type="text/template" id="cartTemplate">
+                    {{each carts as cart}}
+                        <li class="second">
+                            <div class="box">
+                                <!--<i class="icon"></i>-->
+                                <input type="checkbox" class="checkedList">
+                                <!--商品-->
+                                <a href="detail.html" class="shangPing">
+                                    <img src="{{cart.url}}" alt="">
+                                    {{cart.des}}
+                                </a>
+                                <!--价格-->
+                                <span class="price">{{cart.price}}元</span>
+                                <!--商品数量-->
+                                <span class="number">
+                                     <!--<i class="icon jian fl"></i>-->
+                                    <a href="javascript:;"><i class="icon jian fl">-</i></a>
+                                    <input type="text" value="{{cart.num}}" class="num fl">
+                                    <!--<i class="icon jia fl"></i>-->
+                                   <a href="javascript:;"> <i class="icon jia fl">+</i></a>
+                                </span>
+                                <span class="orange subtotal">{{cart.price}}元</span>
+                                <!--删除-->
+                                <!--<a href="#"><i class="icon"></i></a>-->
+                                <a href="javascript:;" class="del"><i class="icon">×</i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </script>
+
+
+
+            </ul>
+            <!--二次确认框-->
+            <div class="del_confirm">
+                <a href="javascript:;">×</a>
+                <h1>确定删除吗?</h1>
+                <div class="confirm_sel">
+                    <button class="btn cancel">取消</button>
+                    <button class="btn determine">确定</button>
+                </div>
+            </div>
+        </div>
+        <!--结算-->
+        <div class="jieSuan clear">
+            <p class="fl"><span class="line">继续购物</span>共 <span class="orange totalSum"></span>件商品，已选择 <span class="orange sum">0</span>件</p>
+            <p class="fr">
+                合计：<span class="orange combined">0</span>元
+                <input type="button" value="去结算" class="fr jieSuan_btn">
+            </p>
+            <!--小提示-->
+            <div class="tip">
+                <div class="content">
+                    请勾选需要结算的商品
+                    <!--小三角-->
+                    <div class="triangle"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--空购物车-->
+        <div class="spaceCats">
+            <h1>您的购物车还是空的！</h1>
+            <a href="#">马上去购物</a>
+        </div>
+
+
+
+        <!--推荐商品-->
+        <div class="tuiJian">
+            <div>
+                <hr>
+            </div>
+            <p>买购物车中商品的人还买了</p>
+        </div>
+        <!--推荐商品列表-->
+        <div class="tuijian_list clear">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li class="last">
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+
+                    </a>
+                </li>
+                <li class="last">
+                    <a href="#">
+                        <img src="../imgs/pms_1552868299.27348967!140x140.jpg" alt="">
+                        <p class="p1">Redmi全自动波轮洗衣机 1A 8kg</p>
+                        <p class="orange">799元</p>
+                        <p>5306人好评</p>
+                        <button class="jiaG">加入购物车</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--底部-->
+<div class="footer clear">
+
+    <!--服务区-->
+    <div class="mod_serve1 clear">
+        <div class="w top clear">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="icon"></i>
+                        预约维修服务
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"></i>
+                        7天无理由退货
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"></i>
+                        15天免费换货
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"></i>
+                        满150元包邮
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"></i>
+                        520余家售后网点
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="w bottom clear">
+            <div class="mod_server2">
+                <div class="fl">
+                    <ul>
+                        <li><p>帮助中心</p></li>
+                        <li><a href="#">账户管理</a></li>
+                        <li><a href="#">购物指南</a></li>
+                        <li><a href="#">订单操作</a></li>
+                    </ul>
+                    <ul>
+                        <li><p>服务支持</p></li>
+                        <li><a href="#">售后政策</a></li>
+                        <li><a href="#">自助服务</a></li>
+                        <li><a href="#">相关下载</a></li>
+                    </ul>
+                    <ul>
+                        <li><p>线下门店</p></li>
+                        <li><a href="#">小米之家</a></li>
+                        <li><a href="#">服务网点</a></li>
+                        <li><a href="#">授权体验店</a></li>
+                    </ul>
+                    <ul>
+                        <li><p>关于小米</p></li>
+                        <li><a href="#">了解小米</a></li>
+                        <li><a href="#">加入小米</a></li>
+                        <li><a href="#">投资者关系</a></li>
+                    </ul>
+                    <ul>
+                        <li><p>关注我们</p></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">官方微信</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                    <ul>
+                        <li><p>特色服务</p></li>
+                        <li><a href="#">F 码通道</a></li>
+                        <li><a href="#">礼物码</a></li>
+                        <li><a href="#">防伪查询</a></li>
+                    </ul>
+                </div>
+                <div class="fr">
+                    <p class="orange">400-100-5678</p>
+                    <p>周一至周日 8:00-18:00</p>
+                    <p>(仅收市话费)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--版权区-->
+    <div class="mod_copy clear">
+        <div class="w">
+            <div class="logo_footer fl"></div>
+            <div class="disc fl">
+                <ul>
+                    <li><a href="#">小米商城</a></li>
+                    <li><a href="#">MIUI</a></li>
+                    <li><a href="#">米家</a></li>
+                    <li><a href="#">米聊</a></li>
+                    <li><a href="#">多看</a></li>
+                    <li><a href="#">游戏</a></li>
+                    <li><a href="#">路由器</a></li>
+                    <li><a href="#">米粉卡</a></li>
+                    <li><a href="#">政企服务</a></li>
+                    <li><a href="#">小米天猫店</a></li>
+                    <li><a href="#">小米集团隐私政策</a></li>
+                    <li><a href="#">小米公司儿童信息保护规则</a></li>
+                    <li><a href="#">小米商城隐私政策</a></li>
+                    <li><a href="#">小米商城用户协议</a></li>
+                    <li><a href="#">问题反馈</a></li>
+                    <li><a href="#">廉正举报</a></li>
+                    <li><a href="#">诚信合规</a></li>
+                    <li class="last"><a href="#">Select Location&nbsp;</a></li>
+                </ul>
+                <div>
+                    <p>©<a href="#">mi.com</a><span>京ICP证110507号</span><a href="#">京ICP备10046444号</a><a href="#">京公网安备11010802020134号</a><a
+                            href="#">京网文[2017]1530-131号</a></p>
+                    <p><a href="#">（京）网械平台备字（2018）第00005号</a><a href="#">互联网药品信息服务资格证 (京) -非经营性-2014-0090</a><a
+                            href="#">营业执照</a><a href="#">医疗器械公告</a></p>
+                    <p><a href="#">增值电信业务许可证</a><span>网络食品经营备案（京）</span><span>【2018】WLSPJYBAHF-12</span><a href="#">食品经营许可证</a>
+                    </p>
+                    <p><span>违法和不良信息举报电话：185-0130-1238</span><a
+                            href="#">知识产权侵权投诉</a><span>本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</span></p>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="../imgs/truste.png" alt=""></a>
+                    <a href="#"><img src="../imgs/v-logo-1.png" alt=""></a>
+                    <a href="#"><img src="../imgs/v-logo-2.png" alt=""></a>
+                    <a href="#"><img src="../imgs/v-logo-3.png" alt=""></a>
+                    <a href="#"><img src="../imgs/v-logo-4.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--最底部-->
+<div class="footer_bottom">
+    <img src="../imgs/slogan2016.png" alt="探索黑科技，小米为发烧而生">
+</div>
+<script src="../js/jquery-3.4.1.min.js"></script>
+
+<script src="../dist/template-web.js"></script>
+<script>
+    var cartsString=localStorage.getItem("cart")||"[]";
+    var carts=JSON.parse(cartsString);
+
+    var html_carList=template("cartTemplate",{carts:carts});
+    // console.log(html_carList)
+    $(".shop .first").after(html_carList);
+
+</script>
+<script src="../js/shopCarts.js"></script>
+</body>
+</html>

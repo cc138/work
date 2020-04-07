@@ -1,0 +1,49 @@
+.link{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    /*width: 95%;*/
+    /*height: 60%;*/
+    z-index: 2;
+    color: #fff;
+    /*overflow: hidden;*/
+}
+/*.link ul{*/
+/*    padding-left: 10%;*/
+/*}*/
+.link li{
+    position: relative;
+    float: left;
+    /*overflow: hidden;*/
+    font-size: 14px;
+    margin-bottom: 3%;
+    width: 33%;
+}
+.link a{
+    float: left;
+    color: #ffffff;
+}
+.link .line{
+    float: left;
+    position: relative;
+    top: 10px;
+    left: -15px;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    transition: all .4s;
+}
+.link li:hover .line{
+    width: 60px;
+}
+.site{
+    text-decoration: underline;
+    text-space: 2px;
+    letter-spacing: 4px;
+    /*文字强制换行*/
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.flow-wave:hover .site{
+    text-decoration: none;
+}

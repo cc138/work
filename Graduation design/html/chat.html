@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/chat_emoji.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<div id="chat">
+<!--    左边-->
+    <div class="left">
+
+        <div class="nav_left">
+<!--            头像-->
+            <div class="current_head">
+                <img src="../imgs/headimg10.jpg" alt="" width="100%" height="100%">
+            </div>
+
+            <ul>
+                <li>
+                    <img src="../imgs/chat_icon.png" alt="" style="display: none">
+                    <img src="../imgs/chat_icon_.png" alt="" style="display: block">
+                </li>
+                <li>
+                    <img src="../imgs/user_icon.png" alt="">
+                    <img src="../imgs/user_icon_.png" alt="">
+                </li>
+                <li>
+                    <img src="../imgs/box_icon.png" alt="">
+                    <img src="../imgs/box_icon_.png" alt="">
+                </li>
+            </ul>
+<!--            更多-->
+            <div class="more">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="more_box">
+                <div class="feedback">意见反馈</div>
+                <div class="about">关于作者</div>
+            </div>
+
+        </div>
+<!--        中间-->
+        <div class="nav_right">
+<!--            搜索栏-->
+            <div class="search">
+                <input type="text" placeholder="搜索">
+                <input type="button" value="+">
+                <span class="search_btn"></span>
+            </div>
+<!--            好友列表-->
+            <div class="friends">
+                <ul class="friends_list">
+                    <li class="default">
+                        <div class="friend">
+                            <div class="friend_info">
+                                <img src="../imgs/room.jpg" alt="" width="40px" height="40px">
+                                <div class="user_name">聊天室</div>
+                            </div>
+                            <div class="friend_time">
+                                    20:33
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="head_box">
+            <div class="chat_title">聊天室</div>
+            <div class="middle">登录了</div>
+            <div class="quit"><p>×</p></div>
+        </div>
+        <div class="msg_box">
+<!--            查看更多消息-->
+            <div class="more_msg">
+                <a href="javascript:;">查看更多消息</a>
+            </div>
+<!--            消息列表-->
+            <ul class="content" id="content">
+
+            </ul>
+        </div>
+        <div class="send_box">
+            <textarea name="words" id="words"></textarea>
+            <div class="emoji">
+                <div class="emoji_detail">
+                    <ul>
+                        <li class="face face1" title="微笑"></li>
+                        <li class="face face2" title="撇嘴"></li>
+                        <li class="face face3" title="色"></li>
+                        <li class="face face4" title="发呆"></li>
+                        <li class="face face5" title="得意"></li>
+                        <li class="face face6" title="流泪"></li>
+                        <li class="face face7" title="害羞"></li>
+                        <li class="face face8" title="闭嘴"></li>
+                        <li class="face face9" title="睡"></li>
+                        <li class="face face10" title="大哭"></li>
+                        <li class="face face11" title="尴尬"></li>
+                        <li class="face face12" title="发怒"></li>
+                        <li class="face face13" title="调皮"></li>
+                        <li class="face face14" title="呲牙"></li>
+                        <li class="face face15" title="惊讶"></li>
+                        <li class="face face16" title="难过"></li>
+                        <li class="face face17" title="酷"></li>
+                        <li class="face face18" title="冷汗"></li>
+                        <li class="face face19" title="抓狂"></li>
+                        <li class="face face20" title="吐"></li>
+                        <li class="face face21" title="偷笑"></li>
+                        <li class="face face22" title="可爱"></li>
+                        <li class="face face23" title="白眼"></li>
+                        <li class="face face24" title="傲慢"></li>
+                        <li class="face face25" title="饥饿"></li>
+                        <li class="face face26" title="困"></li>
+                        <li class="face face27" title="惊恐"></li>
+                        <li class="face face28" title="流汗"></li>
+                        <li class="face face29" title="憨笑"></li>
+                        <li class="face face30" title="装逼"></li>
+                        <li class="face face31" title="奋斗"></li>
+                        <li class="face face32" title="咒骂"></li>
+                        <li class="face face33" title="疑问"></li>
+                        <li class="face face34" title="嘘"></li>
+                        <li class="face face35" title="晕"></li>
+                        <li class="face face36" title="折磨"></li>
+                        <li class="face face37" title="衰"></li>
+                        <li class="face face38" title="骷髅"></li>
+                        <li class="face face39" title="敲打"></li>
+                        <li class="face face40" title="再见"></li>
+                        <li class="face face41" title="擦汗"></li>
+                        <li class="face face42" title="抠鼻"></li>
+                        <li class="face face43" title="鼓掌"></li>
+                        <li class="face face44" title="糗大了"></li>
+                        <li class="face face45" title="坏笑"></li>
+                        <li class="face face46" title="左哼哼"></li>
+                        <li class="face face47" title="右哼哼"></li>
+                        <li class="face face48" title="哈欠"></li>
+                        <li class="face face49" title="鄙视"></li>
+                        <li class="face face50" title="委屈"></li>
+                        <li class="face face51" title="快哭了"></li>
+                        <li class="face face52" title="阴险"></li>
+                        <li class="face face53" title="亲亲"></li>
+                        <li class="face face54" title="吓"></li>
+                        <li class="face face55" title="可怜"></li>
+                        <li class="face face56" title="菜刀"></li>
+                        <li class="face face57" title="西瓜"></li>
+                        <li class="face face58" title="啤酒"></li>
+                        <li class="face face59" title="篮球"></li>
+                        <li class="face face60" title="乒乓"></li>
+                        <li class="face face61" title="咖啡"></li>
+                        <li class="face face62" title="饭"></li>
+                        <li class="face face63" title="猪头"></li>
+                        <li class="face face64" title="玫瑰"></li>
+                        <li class="face face65" title="凋谢"></li>
+                        <li class="face face66" title="示爱"></li>
+                        <li class="face face67" title="爱心"></li>
+                        <li class="face face68" title="心碎"></li>
+                        <li class="face face69" title="蛋糕"></li>
+                        <li class="face face70" title="闪电"></li>
+                        <li class="face face71" title="炸弹"></li>
+                        <li class="face face72" title="刀"></li>
+                        <li class="face face73" title="足球"></li>
+                        <li class="face face74" title="瓢虫"></li>
+                        <li class="face face75" title="便便"></li>
+                        <li class="face face76" title="月亮"></li>
+                        <li class="face face77" title="太阳"></li>
+                        <li class="face face78" title="礼物"></li>
+                        <li class="face face79" title="拥抱"></li>
+                        <li class="face face80" title="赞"></li>
+                        <li class="face face81" title="踩"></li>
+                        <li class="face face82" title="握手"></li>
+                        <li class="face face83" title="胜利"></li>
+                        <li class="face face84" title="抱拳"></li>
+                        <li class="face face85" title="勾引"></li>
+                        <li class="face face86" title="拳头"></li>
+                        <li class="face face87" title="差劲"></li>
+                        <li class="face face88" title="爱你"></li>
+                        <li class="face face89" title="NO"></li>
+                        <li class="face face90" title="OK"></li>
+                        <li class="face face91" title="爱情"></li>
+                        <li class="face face92" title="飞吻"></li>
+                        <li class="face face93" title="跳跳"></li>
+                        <li class="face face94" title="发抖"></li>
+                        <li class="face face95" title="怄火"></li>
+                        <li class="face face96" title="转圈"></li>
+                        <li class="face face97" title="磕头"></li>
+                        <li class="face face98" title="回头"></li>
+                        <li class="face face99" title="跳绳"></li>
+                        <li class="face face100" title="挥手"></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="send">
+                <button class="send">发送</button>
+                <div class="tip">不能发送空白消息</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    模板引擎-->
+<!--消息模板-->
+    <li class="msg other_msg" id="msg_template" style="display: none">
+        <div class="msg_head">
+            <img src="../imgs/headimg10.jpg" alt="" width="100%">
+        </div>
+        <div class="msg_content">
+            <div class="name">
+                 <span class="time"></span>
+            </div>
+            <div class="text"></div>
+        </div>
+    </li>
+<!--用户列表模板-->
+<li id="user_template" style="display: none">
+    <div class="friend">
+        <div class="friend_info">
+            <img src="../imgs/headimg10.jpg" alt="" width="40px" height="40px">
+            <div class="user_name"></div>
+        </div>
+        <div class="friend_time">
+        </div>
+    </div>
+</li>
+<!--<div style="position: absolute;top: 50%;left: 50%;z-index: 999;width: 50px;height: 50px;background-color: #1AAD19" id="ex"></div>-->
+</body>
+<script src="../my-chat/socket.io.js"></script>
+<script>
+    var posi_arr=[];
+    var name;
+    var socket=io.connect("ws://localhost:3000");
+    socket.on("notice",function (info) {
+        console.log("这是来自服务器的消息:"+info)
+    });
+    //打印服务端发送的消息
+    socket.on("msg",function (msg) {
+        var liNode=$("#msg_template").clone(true);
+        liNode.css("display","block");
+        //将表情字符串替换为图片
+            liNode.find(".text").html(msg.value);
+            liNode.find("span").css({
+                verticalAlign: "sub",
+            });
+          posi_arr.length=0;
+        liNode.find(".name").html(msg.name).append("<span class='time'></span>");
+        liNode.find(".time").html(msg.time);
+        // console.log(msg.id+"     "+socket.id);
+        liNode.removeClass("my_msg");
+            if (msg.id==socket.id){
+                liNode.addClass("my_msg")
+            }
+        $("#content").append(liNode);
+        //让消息滚动到最底部
+        document.querySelector(".msg_box").scrollTop=document.querySelector(".msg_box").scrollHeight;
+    });
+    //发送按钮
+    $(".send").click(function () {
+        var time=full_data();
+        var msg=document.querySelector("#words");
+        if (!msg.value.trim()){
+            $(".tip").css("display","block");
+            setTimeout(function () {
+                $(".tip").css("display","none")
+            },2000)
+        }else {
+            //文本内容发送给服务端
+            socket.emit("message",{id:socket.id,name:name,value:msg.value,time:time,posi:posi_arr});
+           msg.value="";
+        }
+    });
+</script>
+<script>
+    //刷新跳转
+    // window.addEventListener("beforeunload",function () {
+    //     alert(1)
+    // })
+    window.onbeforeunload=function () {
+        alert(1)
+    }
+    // window.location.href="http://www.baidu.com"
+    function full_data() {
+        var dates = new Date();
+        var year = dates.getFullYear();
+        var month = dates.getMonth()+1;
+        var day = dates.getDate();
+        var hours = dates.getHours();
+        hours=hours<10?"0"+hours:hours;
+        var mins =dates.getMinutes();
+        mins=mins<10?"0"+mins:mins;
+        var time=year+"年"+month+"月"+day+"日 "+hours+":"+mins;
+        return time;
+    }
+    function now_data() {
+        var dates = new Date();
+        var hours = dates.getHours();
+        hours=hours<10?"0"+hours:hours;
+        var mins =dates.getMinutes();
+        mins=mins<10?"0"+mins:mins;
+        var time=hours+":"+mins;
+        return time;
+    }
+    $(window).ready(function () {
+        //获取登录页面传来的名称
+        name= (decodeURI(location.href.split("=")[1]));//split() 方法用于把一个字符串分割成字符串数组。这里提取“=”后面的id的值
+        //将用户信息发送到服务器
+        setTimeout(function () {
+            var info={id:socket.id,name:name,time:now_data()};
+            socket.emit("user_info",info)
+        },100);
+    });
+    //监听用户上线
+    socket.on("online",function (info) {
+        $(".default").nextAll().remove();
+        for (let i=0;i<=info.length;i++){
+                var liNode=$("#user_template").clone(true);
+                liNode.css("display","block");
+                liNode.find(".user_name").html(info[i].name);
+                liNode.find(".friend_time").html(info[i].time);
+                $(".friends_list").append(liNode);
+
+        }
+    });
+    //监听用户下线
+    socket.on("outline",function (info) {
+        $(".default").nextAll().remove();
+        for (let i=0;i<=info.length;i++){
+            var liNode=$("#user_template").clone(true);
+            liNode.css("display","block");
+            liNode.find(".user_name").html(info[i].name);
+            liNode.find(".friend_time").html(info[i].time);
+            $(".friends_list").append(liNode);
+        }
+    })
+</script>
+<script src="../js/chat.js"></script>
+</html>

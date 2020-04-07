@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        body{
+            /*background-image: url("../imgs/sc01.jpg");*/
+            /*color: red;*/
+        }
+      #bgcanvas1,#bgcanvas2{
+          float: left;
+          width: 50%;
+          height: 100%;
+      }
+        .canvas{
+            height: 100%;
+            width: 100%;
+            min-width: 375px;
+            min-height: 738px;
+        }
+        .text_box{
+            position: absolute;
+            /*width: 600px;*/
+            width: 1920px;
+            text-align: center;
+            /*color: #fff;*/
+            color: rgba(255,255,255,.4);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: auto;
+            font-size: 32px;
+            font-family: font-Giorgio,PingFangSCS,Arial,sans-serif;
+        }
+        .text_box div{
+            /*width: 800px;*/
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <div class="menu">
+        menu
+        <a href="javaScript:;" id="icon_menu">
+            <i class="icon icon_menu"></i>
+            <i class="icon icon_out" style="display: none"></i>
+        </a>
+    </div>
+    <div class="menu_list">
+        <ul>
+            <li class="current"><a href="./index.html">首页&nbsp;/&nbsp;index</a></li>
+            <li><a href="./html/work.html">作品&nbsp;/&nbsp;work</a></li>
+            <li><a href="./html/blog.html">博客&nbsp;/&nbsp;blog</a></li>
+            <li><a href="./html/Photos.html">相册&nbsp;/&nbsp;photo</a></li>
+            <li><a href="./html/login.html">聊天&nbsp;/&nbsp;chat</a></li>
+            <li><a href="./html/contact.html">联系&nbsp;/&nbsp;contact</a></li>
+            <li><a href="./html/collection.html">收藏&nbsp;/&nbsp;collection</a></li>
+        </ul>
+    </div>
+</div>
+<script src="./js/common.js"></script>
+
+<div class="text_box">
+    <div class="zh">
+        <marquee behavior="alternate" direction="" scrollamount="14"> <span>不</span> <span>要</span> <span>让</span> <span>别</span> <span>人</span> <span>的</span> <span>看</span> <span>法</span> <span>淹</span> <span>没</span> <span>了</span> <span>自</span> <span>己</span> <span>心</span> <span>底</span> <span>的</span> <span>声</span> <span>音</span> <span>最</span> <span>重</span> <span>要</span> <span>的</span> <span>,</span> <span>要</span> <span>有</span> <span>勇</span> <span>气</span> <span>跟</span> <span>随</span> <span>自</span> <span>己</span> <span>的</span> <span>内</span> <span>心</span> <span>与</span> <span>直</span> <span>觉</span></marquee>
+    </div>
+    <div class="en">
+        <marquee behavior="alternate" direction="" scrollamount="4"><span>Don't</span> <span>let</span> <span>others'</span> <span>judgement</span> <span>submerge</span> <span>your</span> <span>inner</span> <span>voice</span><span>.</span> <span>Most</span> <span>importantly</span><span>,</span><span>you</span> <span>have</span> <span>to</span> <span>be</span> <span>brave</span> <span>to</span> <span>follow</span> <span>your</span> <span>heart</span> <span>and</span> <span>intuition</span><span>.</span></marquee>
+    </div>
+</div>
+<script>
+     $("span").each(function (index,ele) {
+        $(this).css({
+            color:randColor()
+        })
+     });
+    function randColor() {
+        var r=Math.floor(Math.random()*256);
+        var g=Math.floor(Math.random()*256);
+        var b=Math.floor(Math.random()*256);
+        return "rgb("+r+","+g+","+b+")";
+    }
+</script>
+
+<div id="bgcanvas1">
+<canvas class="canvas"></canvas>
+</div>
+<div id="bgcanvas2">
+    <canvas class="canvas"></canvas>
+</div>
+<!--<div class="content">-->
+<!--    <canvas id="nokey" width="800" height="800">-->
+<!--        Your Browser Don't Support Canvas, Please Download Chrome ^_^``-->
+<!--    </canvas>-->
+<!--</div>-->
+
+<script>
+    window.onload=function () {
+        var canvas=$(".canvas")[0];
+        var canvas2=$(".canvas")[1];
+         // canvas=document.getElementById("canvas1");
+        var context=canvas.getContext("2d");
+        var context2=canvas2.getContext("2d");
+        var W=window.innerHeight;
+        var H=window.innerWidth;
+        console.log(W);
+        canvas.width=W;
+        canvas.height=H;
+        canvas2.width=W;
+        canvas2.height=H;
+        var drop=[];
+        var font_size=18;
+        var columns=Math.floor(W/font_size);
+        for(var i=0;i<columns;i++){
+            drop.push(0);
+        }
+
+        var str="01";
+        function draw1(){
+
+            context.fillStyle="rgba(0, 0, 0, 0.05)";
+            context.fillRect(0,0,W,H);
+            context.font="1000 "+font_size+"px 微软雅黑";
+            context.fillStyle=randColor();
+
+            for(var i=0;i<columns;i++){
+                var index=Math.floor(Math.random()*str.length);
+                var x=i*font_size;
+                var y=drop[i]*font_size;
+                context.fillText(str[index],x,y);
+                if (y>=canvas.height&&Math.random()>0.99){
+                    drop[i]=0;
+                }
+                drop[i]++;
+            }
+        }
+        function draw2(){
+
+            context2.fillStyle="rgba(0, 0, 0, 0.05)";
+            context2.fillRect(0,0,W,H);
+            context2.font="1000 "+font_size+"px 微软雅黑";
+            context2.fillStyle=randColor();
+
+            for(var i=0;i<columns;i++){
+                var index=Math.floor(Math.random()*str.length);
+                var x=i*font_size;
+                var y=drop[i]*font_size;
+                context2.fillText(str[index],x,y);
+                if (y>=canvas2.height&&Math.random()>0.99){
+                    drop[i]=0;
+                }
+                drop[i]++;
+            }
+        }
+        function randColor() {
+            var r=Math.floor(Math.random()*256);
+            var g=Math.floor(Math.random()*256);
+            var b=Math.floor(Math.random()*256);
+            return "rgba("+r+","+g+","+b+")";
+
+        }
+
+        // setTimeout(draw1,1000);
+        // setTimeout(draw2,2000);
+        setInterval(draw1,40);
+        setInterval(draw2,40);
+
+
+    }
+
+</script>
+
+<!--&lt;!&ndash;CodePen复制&ndash;&gt;-->
+<!--<script>-->
+<!--    var canvas = document.getElementById('nokey'),-->
+<!--        can_w = parseInt(canvas.getAttribute('width')),-->
+<!--        can_h = parseInt(canvas.getAttribute('height')),-->
+<!--        ctx = canvas.getContext('2d');-->
+
+<!--    // console.log(typeof can_w);-->
+
+<!--    var ball = {-->
+<!--            x: 0,-->
+<!--            y: 0,-->
+<!--            vx: 0,-->
+<!--            vy: 0,-->
+<!--            r: 0,-->
+<!--            alpha: 1,-->
+<!--            phase: 0-->
+<!--        },-->
+<!--        ball_color = {-->
+<!--            r: 255,-->
+<!--            g: 0,-->
+<!--            b: 0-->
+<!--        },-->
+<!--        R = 2,-->
+<!--        balls = [],-->
+<!--        alpha_f = 0.03,-->
+<!--        alpha_phase = 0,-->
+
+<!--// Line-->
+<!--        link_line_width = 0.8,-->
+<!--        dis_limit = 260,-->
+<!--        add_mouse_point = true,-->
+<!--        mouse_in = false,-->
+<!--        mouse_ball = {-->
+<!--            x: 0,-->
+<!--            y: 0,-->
+<!--            vx: 0,-->
+<!--            vy: 0,-->
+<!--            r: 0,-->
+<!--            type: 'mouse'-->
+<!--        };-->
+
+<!--    // Random speed-->
+<!--    function getRandomSpeed(pos){-->
+<!--        var  min = -1,-->
+<!--            max = 1;-->
+<!--        switch(pos){-->
+<!--            case 'top':-->
+<!--                return [randomNumFrom(min, max), randomNumFrom(0.1, max)];-->
+<!--                break;-->
+<!--            case 'right':-->
+<!--                return [randomNumFrom(min, -0.1), randomNumFrom(min, max)];-->
+<!--                break;-->
+<!--            case 'bottom':-->
+<!--                return [randomNumFrom(min, max), randomNumFrom(min, -0.1)];-->
+<!--                break;-->
+<!--            case 'left':-->
+<!--                return [randomNumFrom(0.1, max), randomNumFrom(min, max)];-->
+<!--                break;-->
+<!--            default:-->
+<!--                return;-->
+<!--                break;-->
+<!--        }-->
+<!--    }-->
+<!--    function randomArrayItem(arr){-->
+<!--        return arr[Math.floor(Math.random() * arr.length)];-->
+<!--    }-->
+<!--    function randomNumFrom(min, max){-->
+<!--        return Math.random()*(max - min) + min;-->
+<!--    }-->
+<!--    console.log(randomNumFrom(0, 10));-->
+<!--    // Random Ball-->
+<!--    function getRandomBall(){-->
+<!--        var pos = randomArrayItem(['top', 'right', 'bottom', 'left']);-->
+<!--        switch(pos){-->
+<!--            case 'top':-->
+<!--                return {-->
+<!--                    x: randomSidePos(can_w),-->
+<!--                    y: -R,-->
+<!--                    vx: getRandomSpeed('top')[0],-->
+<!--                    vy: getRandomSpeed('top')[1],-->
+<!--                    r: R,-->
+<!--                    alpha: 1,-->
+<!--                    phase: randomNumFrom(0, 10)-->
+<!--                }-->
+<!--                break;-->
+<!--            case 'right':-->
+<!--                return {-->
+<!--                    x: can_w + R,-->
+<!--                    y: randomSidePos(can_h),-->
+<!--                    vx: getRandomSpeed('right')[0],-->
+<!--                    vy: getRandomSpeed('right')[1],-->
+<!--                    r: R,-->
+<!--                    alpha: 1,-->
+<!--                    phase: randomNumFrom(0, 10)-->
+<!--                }-->
+<!--                break;-->
+<!--            case 'bottom':-->
+<!--                return {-->
+<!--                    x: randomSidePos(can_w),-->
+<!--                    y: can_h + R,-->
+<!--                    vx: getRandomSpeed('bottom')[0],-->
+<!--                    vy: getRandomSpeed('bottom')[1],-->
+<!--                    r: R,-->
+<!--                    alpha: 1,-->
+<!--                    phase: randomNumFrom(0, 10)-->
+<!--                }-->
+<!--                break;-->
+<!--            case 'left':-->
+<!--                return {-->
+<!--                    x: -R,-->
+<!--                    y: randomSidePos(can_h),-->
+<!--                    vx: getRandomSpeed('left')[0],-->
+<!--                    vy: getRandomSpeed('left')[1],-->
+<!--                    r: R,-->
+<!--                    alpha: 1,-->
+<!--                    phase: randomNumFrom(0, 10)-->
+<!--                }-->
+<!--                break;-->
+<!--        }-->
+<!--    }-->
+<!--    function randomSidePos(length){-->
+<!--        return Math.ceil(Math.random() * length);-->
+<!--    }-->
+
+<!--    // Draw Ball-->
+<!--    function renderBalls(){-->
+<!--        Array.prototype.forEach.call(balls, function(b){-->
+<!--            if(!b.hasOwnProperty('type')){-->
+<!--                ctx.fillStyle = 'rgba('+ball_color.r+','+ball_color.g+','+ball_color.b+','+b.alpha+')';-->
+<!--                ctx.beginPath();-->
+<!--                ctx.arc(b.x, b.y, R, 0, Math.PI*2, true);-->
+<!--                ctx.closePath();-->
+<!--                ctx.fill();-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+
+<!--    // Update balls-->
+<!--    function updateBalls(){-->
+<!--        var new_balls = [];-->
+<!--        Array.prototype.forEach.call(balls, function(b){-->
+<!--            b.x += b.vx;-->
+<!--            b.y += b.vy;-->
+
+<!--            if(b.x > -(50) && b.x < (can_w+50) && b.y > -(50) && b.y < (can_h+50)){-->
+<!--                new_balls.push(b);-->
+<!--            }-->
+
+<!--            // alpha change-->
+<!--            b.phase += alpha_f;-->
+<!--            b.alpha = Math.abs(Math.cos(b.phase));-->
+<!--            // console.log(b.alpha);-->
+<!--        });-->
+
+<!--        balls = new_balls.slice(0);-->
+<!--    }-->
+
+<!--    // loop alpha-->
+<!--    function loopAlphaInf(){-->
+
+<!--    }-->
+
+<!--    // Draw lines-->
+<!--    function renderLines(){-->
+<!--        var fraction, alpha;-->
+<!--        for (var i = 0; i < balls.length; i++) {-->
+<!--            for (var j = i + 1; j < balls.length; j++) {-->
+
+<!--                fraction = getDisOf(balls[i], balls[j]) / dis_limit;-->
+
+<!--                if(fraction < 1){-->
+<!--                    alpha = (1 - fraction).toString();-->
+
+<!--                    ctx.strokeStyle = 'rgba(150,150,150,'+alpha+')';-->
+<!--                    ctx.lineWidth = link_line_width;-->
+
+<!--                    ctx.beginPath();-->
+<!--                    ctx.moveTo(balls[i].x, balls[i].y);-->
+<!--                    ctx.lineTo(balls[j].x, balls[j].y);-->
+<!--                    ctx.stroke();-->
+<!--                    ctx.closePath();-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+
+<!--    // calculate distance between two points-->
+<!--    function getDisOf(b1, b2){-->
+<!--        var  delta_x = Math.abs(b1.x - b2.x),-->
+<!--            delta_y = Math.abs(b1.y - b2.y);-->
+
+<!--        return Math.sqrt(delta_x*delta_x + delta_y*delta_y);-->
+<!--    }-->
+
+<!--    // add balls if there a little balls-->
+<!--    function addBallIfy(){-->
+<!--        if(balls.length < 20){-->
+<!--            balls.push(getRandomBall());-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Render-->
+<!--    function render(){-->
+<!--        ctx.clearRect(0, 0, can_w, can_h);-->
+
+<!--        renderBalls();-->
+
+<!--        renderLines();-->
+
+<!--        updateBalls();-->
+
+<!--        addBallIfy();-->
+
+<!--        window.requestAnimationFrame(render);-->
+<!--    }-->
+
+<!--    // Init Balls-->
+<!--    function initBalls(num){-->
+<!--        for(var i = 1; i <= num; i++){-->
+<!--            balls.push({-->
+<!--                x: randomSidePos(can_w),-->
+<!--                y: randomSidePos(can_h),-->
+<!--                vx: getRandomSpeed('top')[0],-->
+<!--                vy: getRandomSpeed('top')[1],-->
+<!--                r: R,-->
+<!--                alpha: 1,-->
+<!--                phase: randomNumFrom(0, 10)-->
+<!--            });-->
+<!--        }-->
+<!--    }-->
+<!--    // Init Canvas-->
+<!--    function initCanvas(){-->
+<!--        canvas.setAttribute('width', window.innerWidth);-->
+<!--        canvas.setAttribute('height', window.innerHeight);-->
+
+<!--        can_w = parseInt(canvas.getAttribute('width'));-->
+<!--        can_h = parseInt(canvas.getAttribute('height'));-->
+<!--    }-->
+<!--    window.addEventListener('resize', function(e){-->
+<!--        console.log('Window Resize...');-->
+<!--        initCanvas();-->
+<!--    });-->
+
+<!--    function goMovie(){-->
+<!--        initCanvas();-->
+<!--        initBalls(30);-->
+<!--        window.requestAnimationFrame(render);-->
+<!--    }-->
+<!--    goMovie();-->
+
+<!--    // Mouse effect-->
+<!--    canvas.addEventListener('mouseenter', function(){-->
+<!--        console.log('mouseenter');-->
+<!--        mouse_in = true;-->
+<!--        balls.push(mouse_ball);-->
+<!--    });-->
+<!--    canvas.addEventListener('mouseleave', function(){-->
+<!--        console.log('mouseleave');-->
+<!--        mouse_in = false;-->
+<!--        var new_balls = [];-->
+<!--        Array.prototype.forEach.call(balls, function(b){-->
+<!--            if(!b.hasOwnProperty('type')){-->
+<!--                new_balls.push(b);-->
+<!--            }-->
+<!--        });-->
+<!--        balls = new_balls.slice(0);-->
+<!--    });-->
+<!--    canvas.addEventListener('mousemove', function(e){-->
+<!--        var e = e || window.event;-->
+<!--        mouse_ball.x = e.pageX;-->
+<!--        mouse_ball.y = e.pageY;-->
+<!--        // console.log(mouse_ball);-->
+<!--    });-->
+<!--    -->
+<!--</script>-->
+</body>
+</html>

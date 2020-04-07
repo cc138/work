@@ -1,0 +1,113 @@
+/*滤镜*/
+.fil{
+    /*显示色彩*/
+    filter:grayscale(0)!important;
+}
+/*透明*/
+.opa{
+    opacity: 0;
+}
+/*放大*/
+.amplification{
+    transform: scale(1.2);
+}
+
+
+.main , .main ul{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.main li{
+    position: relative;
+    float: left;
+    /*min-width: 480px;*/
+    width: 25%;
+    height: 33.33%;
+    overflow: hidden;
+    /*默认为灰色*/
+    filter:grayscale(1);
+    cursor: pointer;
+}
+.cover{
+    overflow: hidden;
+}
+.main .cover img{
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+    min-height: 320px;
+}
+.main .des{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    color: #fff;
+    background-color: #000;
+    transition: all .6s;
+}
+
+
+
+/*简单轮播*/
+.detail{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+}
+.focus{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: calc(100% - 80px);
+    background: hsla(0,0%,100%,.2);
+    z-index: 99;
+}
+.focus img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.focus .del{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 50px;
+    top: 50px;
+    border: none;
+    outline: none;
+    z-index: 99;
+    opacity: .7;
+    background: url("../imgs/close.png") no-repeat;
+}
+.focus .btn{
+    position: absolute;
+    width: 65px;
+    height: 198px;
+    top: 50%;
+    border: none;
+    outline: none;
+    transform: translateY(-50%);
+    background: url("../imgs/btn.png") no-repeat;
+    z-index: 99;
+    /*opacity: .5;*/
+}
+.focus .btn_l{
+    left: 100px;
+}
+.focus .btn_r{
+    right: 100px;
+    background-position: 100% 0 ;
+}
